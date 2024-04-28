@@ -1,0 +1,6 @@
+Naming Rules:
+1. first word no small letter and then next word capital ok kah 
+exp: login , loginPage , adminLoginPage
+
+Fixing name:
+button : btn, exp: btnClick, linkBtn
