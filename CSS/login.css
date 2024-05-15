@@ -1,0 +1,113 @@
+.body {
+    margin: 0;
+    background-image: url(../IMAGES/background.jpg);
+    background-size: cover;
+}
+
+.header-container {
+    max-width: 100%;
+    margin: 0 auto;
+    max-height: auto;
+    padding: 5px;
+    background-color: wheat;
+    display: flex;
+    align-items: center;
+}
+
+.sub-header {
+    font-size: larger;
+    font-style: oblique;
+    margin-left: auto;
+}
+
+.login {
+    font-size: larger;
+    font-style: oblique;
+    margin-left: auto;
+    padding-right: 10px;
+}
+
+.login-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-style: oblique;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.label {
+    width: 100px;
+    display: inline-block;
+}
+
+.button {
+    background-color: #c2b280;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    font-style: oblique;
+}
+
+.button:hover {
+    background-color: #c2a480;
+
+}
+
+.login a:hover {
+    color: #536878;
+}
+
+.sub-header a:hover {
+    color: #536878;
+}
+
+.sub-header a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.login a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: wheat;
+    text-align: center;
+    font-style: oblique;
+    padding: 1px; /* Add padding top and bottom for better appearance */
+    position: static; /* Position the footer fixed at the bottom */
+    width: auto;
+}
+
+.footer-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    margin-bottom: 10px;
+}
