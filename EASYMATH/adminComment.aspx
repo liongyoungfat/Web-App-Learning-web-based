@@ -44,6 +44,7 @@
                                     </ItemTemplate>
                                     <EditItemTemplate>
                                         <asp:TextBox ID="commentDescription" runat="server" Text='<%# Bind("commentDescription") %>' />
+                                        <asp:RequiredFieldValidator ID="rfvForumTitle" runat="server" ControlToValidate="commentDescription" ErrorMessage="Comment is required." Display="Dynamic" ForeColor="Red" />
                                     </EditItemTemplate>
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Comment Image" ItemStyle-Width="25%">
