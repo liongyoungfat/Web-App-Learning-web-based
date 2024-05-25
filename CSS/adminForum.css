@@ -1,0 +1,176 @@
+﻿/* Basic Styles */
+body {
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: wheat;
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.logo {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.menu {
+    background-color: #333;
+}
+
+    .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+        .menu ul li {
+            display: inline;
+        }
+
+            .menu ul li a {
+                display: inline-block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: white;
+            }
+
+                .menu ul li a:hover {
+                    background-color: #555;
+                }
+
+/* Container Styles */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* GridView Styles */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .table th, .table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+    }
+
+/* Button Styles */
+.aspButton, .editButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.aspButton {
+    background-color: #fb3d28; /* Red background */
+}
+
+    .aspButton:hover {
+        background-color: #ff6347; /* Darker red on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    .aspButton:active {
+        background-color: #e52b1c; /* Revert to original red when clicked */
+        transform: scale(1);
+    }
+
+.editButton {
+    background-color: #ff69b4; /* Pink background */
+}
+
+    .editButton:hover {
+        background-color: #ff1493; /* Darker pink on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    .editButton:active {
+        background-color: #ff69b4; /* Revert to original pink when clicked */
+        transform: scale(1);
+    }
+
+/* File Upload Styles */
+#forumImageUpload {
+    display: block;
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+    #forumImageUpload:hover {
+        border-color: #999;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    #forumImageUpload:focus {
+        border-color: #666;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .menu ul li {
+        display: block;
+        text-align: left;
+    }
+
+        .menu ul li a {
+            display: block;
+            padding: 10px;
+        }
+
+    header .logo {
+        position: static;
+        margin: 0 auto;
+        display: block;
+    }
+
+    header h1 {
+        margin: 0;
+        padding-top: 100px; /* Adjust if necessary */
+    }
+}
