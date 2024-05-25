@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -12,15 +12,23 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace wappAssWebLearning.EASYMATH
+namespace webAssignment.EASYMATH
 {
     public partial class forum : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Debug.WriteLine("start usertype" + Session["usertype"]);
             if (Session["usertype"] != null && Session["usertype"].ToString() == "TE")
             {
-                linkButtonCreateForum.Visible= true;
+                Debug.WriteLine("usertype" + Session["usertype"]);
+                linkButtonCreateForum.Visible = true;
+
+            }
+            else
+            {
+                Debug.WriteLine("end usertype" + Session["usertype"]);
+                linkButtonCreateForum.Visible = false;
             }
             if (!IsPostBack)
             {
@@ -256,28 +264,26 @@ namespace wappAssWebLearning.EASYMATH
             }
         }
 
-
-
-
-        protected void rptForums_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void rptForums_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            if (Session["usertype"] != null && Session["usertype"].ToString() == "TE")
+            Debug.WriteLine("rptForums run");
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                // Find the controls within the current RepeaterItem
                 Button editForumButton = (Button)e.Item.FindControl("editForumButton");
                 Button deleteForumButton = (Button)e.Item.FindControl("deleteForumButton");
+                Debug.WriteLine("usertype" + Session["usertype"]);
 
-                if (editForumButton != null && deleteForumButton != null)
+                if (Session["usertype"] != null && Session["usertype"].ToString() == "TE")
                 {
                     editForumButton.Visible = true;
                     deleteForumButton.Visible = true;
                 }
-            }
-        }
-        protected void rptForums_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {            
+                else
+                {
+                    editForumButton.Visible = false;
+                    deleteForumButton.Visible = false;
+                }
+
 
                 Forum forum = e.Item.DataItem as Forum; // Cast to Forum
                 if (forum != null)
@@ -308,9 +314,7 @@ namespace wappAssWebLearning.EASYMATH
 
                 if (currentUsername != null && currentUsername == postUsername && Session["usertype"].ToString() == "TE")
                 {
-                    Button editForumButton = (Button)e.Item.FindControl("editForumButton");
-                    Button deleteForumButton = (Button)e.Item.FindControl("deleteForumButton");
-
+                    
                     if (editForumButton != null && deleteForumButton != null)
                     {
                         editForumButton.Visible = true;
@@ -318,9 +322,7 @@ namespace wappAssWebLearning.EASYMATH
                     }
                 }
                 else
-                {
-                    Button editForumButton = (Button)e.Item.FindControl("editForumButton");
-                    Button deleteForumButton = (Button)e.Item.FindControl("deleteForumButton");
+                {                   
 
                     if (editForumButton != null && deleteForumButton != null && Session["usertype"].ToString() == "TE")
                     {
