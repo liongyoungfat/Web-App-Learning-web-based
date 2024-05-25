@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -10,9 +10,8 @@ using System.Net.NetworkInformation;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static wappAssWebLearning.EASYMATH.forumTitle;
 
-namespace wappAssWebLearning.EASYMATH
+namespace webAssignment.EASYMATH
 {
     public partial class forumTitle : System.Web.UI.Page
     {
@@ -117,6 +116,7 @@ namespace wappAssWebLearning.EASYMATH
         protected void addCommentButton_Click(object sender, EventArgs e)
         {
             commentTextBox.Visible = true;
+            validationCommentTextBox.Visible = true;
             commentFileUpload.Visible = true;
             postCommentButton.Visible = true;
             addCommentButton.Visible = false;
@@ -186,6 +186,7 @@ namespace wappAssWebLearning.EASYMATH
         protected void editCommentButton_Click(object sender, EventArgs e)
         {
             Button editButton = (Button)sender;
+
             int commentNo = int.Parse(editButton.CommandArgument);
 
             // Find the Repeater Item
@@ -197,17 +198,24 @@ namespace wappAssWebLearning.EASYMATH
             TextBox editCommentDescriptionTextBox = (TextBox)item.FindControl("editCommentDescriptionTextBox");
             FileUpload editCommentImageFileUpload = (FileUpload)item.FindControl("editCommentImageFileUpload");
             Button saveCommentButton = (Button)item.FindControl("saveCommentButton");
+            Button cancelEditButton = (Button)item.FindControl("cancelEditButton");
+            Button deleteCommentButton = (Button)item.FindControl("deleteCommentButton");
             RequiredFieldValidator validationEditCommentDescription = (RequiredFieldValidator)item.FindControl("validationEditCommentDescription");
 
-
             if (commentDescriptionLabel != null && editCommentDescriptionTextBox != null &&
-            editCommentImageFileUpload != null && saveCommentButton != null && validationEditCommentDescription != null)
+            editCommentImageFileUpload != null && saveCommentButton != null &&
+            validationEditCommentDescription != null && cancelEditButton != null && deleteCommentButton != null)
             {
                 commentDescriptionLabel.Visible = true;
                 editCommentDescriptionTextBox.Visible = true;
                 editCommentImageFileUpload.Visible = true;
                 saveCommentButton.Visible = true;
-                validationEditCommentDescription.Visible = true;               
+                validationEditCommentDescription.Visible = true;
+                cancelEditButton.Visible = true;
+
+                // Hide the edit and delete buttons
+                editButton.Visible = false;
+                deleteCommentButton.Visible = false;
             }
             else
             {                
@@ -268,6 +276,48 @@ namespace wappAssWebLearning.EASYMATH
                 bindDatabase(forumNo);
             }
 
+        }
+
+        protected void cancelEditButton_Click(object sender, EventArgs e)
+        {
+            Button cancelButton = (Button)sender;
+
+            int commentNo = int.Parse(cancelButton.CommandArgument);
+
+            // Find the Repeater Item
+            RepeaterItem item = (RepeaterItem)cancelButton.NamingContainer;
+
+            // Find controls within the Repeater Item
+            Label commentDescriptionLabel = (Label)item.FindControl("commentDescriptionLabel");
+            TextBox editCommentDescriptionTextBox = (TextBox)item.FindControl("editCommentDescriptionTextBox");
+            FileUpload editCommentImageFileUpload = (FileUpload)item.FindControl("editCommentImageFileUpload");
+            Button saveCommentButton = (Button)item.FindControl("saveCommentButton");
+            Button editCommentButton = (Button)item.FindControl("editCommentButton");
+            Button deleteCommentButton = (Button)item.FindControl("deleteCommentButton");
+            RequiredFieldValidator validationEditCommentDescription = (RequiredFieldValidator)item.FindControl("validationEditCommentDescription");
+
+            if (commentDescriptionLabel != null && editCommentDescriptionTextBox != null &&
+                editCommentImageFileUpload != null && saveCommentButton != null &&
+                validationEditCommentDescription != null && editCommentButton != null && deleteCommentButton != null)
+            {
+                // Show the labels and hide the textboxes
+                commentDescriptionLabel.Visible = true;
+                editCommentDescriptionTextBox.Visible = false;
+                editCommentImageFileUpload.Visible = false;
+                saveCommentButton.Visible = false;
+                validationEditCommentDescription.Visible = false;
+
+                // Show the edit and delete buttons
+                editCommentButton.Visible = true;
+                deleteCommentButton.Visible = true;
+
+                // Hide the cancel button
+                cancelButton.Visible = false;
+            }
+            else
+            {
+                Debug.WriteLine("One or more controls were not found.");
+            }
         }
 
 
