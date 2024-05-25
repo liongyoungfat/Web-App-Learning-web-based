@@ -1,0 +1,219 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: wheat;
+    color: black;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.logo {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.menu {
+    background-color: #333;
+}
+
+    .menu ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+        .menu ul li {
+            display: inline;
+        }
+
+            .menu ul li a {
+                display: inline-block;
+                padding: 10px 20px;
+                text-decoration: none;
+                color: white;
+            }
+
+                .menu ul li a:hover {
+                    background-color: #555;
+                }
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.subforum-title h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+.subforum-title h3 {
+    font-size: 1.2em;
+    margin-top: 5px;
+}
+
+.subforum-row {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    overflow: hidden;   
+}
+
+.subforum-description {
+    display: inline-block; /* Changed from block to inline-block */
+    vertical-align: top;
+    margin-right: 20px; /* Added margin-right for spacing */
+}
+
+    .subforum-description .subforum-column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%; /* Ensure each column takes up half of the row */
+        box-sizing: border-box; /* Include padding and border in the width calculation */
+    }
+
+    .subforum-description img {
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+.center {
+    text-align: center;
+}
+
+.post-info {
+    color: #666; /* Adjust the color to match your design */
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-top: 5px; /* Add some space above the post info */
+}
+
+.button-column {
+    flex: 1;
+    text-align: right;
+}
+
+
+/* TextBox */
+.searchBox {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #00BFFF; /* Light blue border */
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+    .searchBox:focus {
+        border-color: #FF69B4; /* Pink border on focus */
+        box-shadow: 0 0 10px #FF69B4;
+    }
+
+/* Button Styles */
+.aspButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #FF69B4; /* Pink background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+    .aspButton:hover {
+        background-color: #FF1493; /* Darker pink on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    .aspButton:active {
+        background-color: #FF69B4; /* Revert to original pink when clicked */
+        transform: scale(1);
+    }
+
+
+/* Specific Styles for LinkButton */
+.aspLinkButton {
+    color: #2E8B57; /* Change to a more vibrant green */
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 1000;
+    padding: 10px;
+    position: relative;
+    transition: color 250ms, box-shadow 250ms; /* Add transition for smooth color change */
+}
+
+    .aspLinkButton::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0;
+        background-color: #2E8B57;
+        z-index: -1;
+        transition: all 250ms;
+    }
+
+    .aspLinkButton:hover {
+        color: #FF4500; /* More visible and vibrant color */
+        box-shadow: 0 0 10px #FF4500; /* Add a shadow to make it more colorful */
+    }
+
+        .aspLinkButton:hover::before {
+            width: 100%;
+            background-color: #FFA500; /* Bright orange background on hover */
+        }
+
+    /* Optional: For an even more colorful effect */
+    .aspLinkButton:active {
+        color: #FFFFFF;
+        background-color: #FF6347; /* Darker orange-red when active */
+        box-shadow: 0 0 15px #FF6347; /* Intense shadow when active */
+    }
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header .logo {
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+}
+
+/* no result for serach fucntion*/
+.noResultsLabel {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}

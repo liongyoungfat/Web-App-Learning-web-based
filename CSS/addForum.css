@@ -1,0 +1,151 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ffa07a;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+    header .logo {
+        height: 80px;
+        vertical-align: middle;
+    }
+
+    header h1 {
+        display: inline;
+        margin: 0;
+        padding-left: 20px;
+        font-size: 2.5em;
+        color: #333;
+    }
+
+nav.menu {
+    background-color: #ff4500;
+}
+
+    nav.menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+        nav.menu ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+            nav.menu ul li a {
+                color: white;
+                text-decoration: none;
+                padding: 14px 20px;
+                display: inline-block;
+                font-size: 18px;
+            }
+
+                nav.menu ul li a:hover {
+                    background-color: #ff6347;
+                }
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h3 {
+    color: #ff4500;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* TextBox */
+.textBox {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #00BFFF; /* Light blue border */
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+    .textBox:focus {
+        border-color: #FF69B4; /* Pink border on focus */
+        box-shadow: 0 0 10px #FF69B4;
+    }
+
+/* Button Styles */
+.aspButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #FF69B4; /* Pink background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    display: block;
+    margin: 0 auto;
+}
+
+    .aspButton:hover {
+        background-color: #FF1493; /* Darker pink on hover */
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+
+    .aspButton:active {
+        background-color: #FF69B4; /* Revert to original pink when clicked */
+        transform: scale(1);
+    }
+
+/* Error Message */
+.errMsg {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    header .logo {
+        height: 60px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+}
