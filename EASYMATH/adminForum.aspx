@@ -50,6 +50,7 @@
                                         </ItemTemplate>
                                         <EditItemTemplate>
                                             <asp:TextBox ID="forumTitle" runat="server" Text='<%# Bind("forumTitle") %>' />
+                                            <asp:RequiredFieldValidator ID="rfvForumTitle" runat="server" ControlToValidate="forumTitle" ErrorMessage="Forum Title is required." Display="Dynamic" ForeColor="Red" />
                                         </EditItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Forum Description" ItemStyle-Width="15%">
